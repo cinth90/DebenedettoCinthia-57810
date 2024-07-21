@@ -1,0 +1,15 @@
+{% extends "busqueda/index.html" %}
+
+{% block titulo %}
+<h1 class="display-5 fw-bolder text-white">Confirm delete</h1>                                
+{% endblock titulo %}
+
+{% block contenido %}  
+
+  <h3>Are you sure you want to delete "{{ object }}"?</h3>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+  </form>
+  <a href="{% url 'testimonial' %}">Cancel</a>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends "busqueda/index.html" %}
+
+
+{% block titulo %}
+<h1 class= "display-5 fw-bolder text-white">I Found an item</h1>                                
+{% endblock titulo %}
+
+
+{% block contenido %}   
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <form action="" method="post" enctype="multipart/form-data" class="p-4 bg-primary bg-gradient rounded-3">
+                {% csrf_token %}
+                <script>
+                    $(function() {
+                        $("#id_when").datepicker({
+                            dateFormat: 'dd/mm/yy'
+                        });
+                    });
+                </script>
+                <table class="table table-bordered table-striped text-white">
+                    {{ form.as_table }}
+                </table>
+                <button type="submit" class="btn btn-light mt-3">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock contenido %}

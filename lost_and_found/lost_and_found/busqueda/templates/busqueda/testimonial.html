@@ -1,0 +1,33 @@
+{% extends "busqueda/index.html" %}
+
+
+{% block titulo %}
+<h1 class="display-10 fw-bolder text-white">Testimonials</h1>                                
+{% endblock titulo %}
+
+
+{% block contenido %}  
+ 
+<table class="table" class="display-10 fw-bolder text-white">
+    <thead class="display-10 fw-bolder text-white">
+        <tr>
+            <th>Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>City</th>
+            <th>Testimonial</th>
+        </tr>
+    </thead>
+    <tbody class="display-10 fw-bolder text-white">
+    {% for t in testmonial  %}
+        <tr class="display-10 fw-bolder text-white">
+            <td>{{ t.id }}</td>
+            <td>{{ t.firstName }}</td>
+            <td>{{ t.lastName }}</td>
+            <td>{{ t.city }}</td>
+            <td>{{ t.testimonial }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}
