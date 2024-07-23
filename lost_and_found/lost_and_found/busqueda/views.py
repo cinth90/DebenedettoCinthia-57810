@@ -131,20 +131,20 @@ def encontrarItem(request):
 
 #Dejar testimonios
 
-class TestimonialList(ListView):
+class TestimonialList(LoginRequiredMixin, ListView):
     model = Testimonial
 
-class TestimonialCreate(CreateView):
-    model = Testimonial
-    fields = ["firstName", "lastName", "city", "testimonial"]
-    success_url = reverse_lazy("testimonial")
-
-class TestimonialUpdate(UpdateView):
+class TestimonialCreate(LoginRequiredMixin, CreateView):
     model = Testimonial
     fields = ["firstName", "lastName", "city", "testimonial"]
     success_url = reverse_lazy("testimonial")
 
-class TestimonialDelete(DeleteView):
+class TestimonialUpdate(LoginRequiredMixin, UpdateView):
+    model = Testimonial
+    fields = ["firstName", "lastName", "city", "testimonial"]
+    success_url = reverse_lazy("testimonial")
+
+class TestimonialDelete(LoginRequiredMixin, DeleteView):
     model = Testimonial
     success_url = reverse_lazy("testimonial")
     
